@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jules L'HOMÉ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Graph Background -->
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">{ JL'H }</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="index.html#skills" class="nav-link">Compétences</a></li>
+                <li><a href="index.html#formation" class="nav-link">Formation</a></li>
+                <li><a href="projets.html" class="nav-link">Projets</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li>
+                    <div class="weather-slider-container">
+                        <div class="sun-bg"></div>
+                        <input type="range" min="0" max="100" value="0" class="weather-slider" id="themeSlider"
+                            aria-label="Contrôle du thème">
+                        <span class="slider-tooltip">Glissez pour changer l'ambiance</span>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Changer le thème">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact-page">
+        <div class="container">
+            <h1 class="page-title">Me Contacter</h1>
+
+            <div class="contact-content">
+                <div class="contact-intro">
+                    <p>
+                        Je suis actuellement à la recherche d'un <span class="highlight-accent">stage en cybersécurité
+                            ou en big data</span>
+                        pour approfondir mes compétences et contribuer à des projets passionnants.
+                    </p>
+                    <p>
+                        N'hésitez pas à me contacter pour <span class="highlight-accent">échanger</span> sur mes <span
+                            class="highlight-accent">projets</span>,
+                        <span class="highlight-accent">discuter</span> d'<span class="highlight-accent">opportunités
+                            professionnelles</span> ou simplement pour un
+                        <span class="highlight-accent">échange technique</span>.
+                    </p>
+                </div>
+
+                <div class="contact-methods">
+                    <a href="mailto:jules.lhome@gmail.com" class="contact-card">
+                        <!-- <div class="contact-icon-box">📧</div> -->
+                        <h3>Email</h3>
+                        <p>jules.lhome@gmail.com</p>
+                    </a>
+
+
+                    <a href="https://www.linkedin.com/in/jules-lhome" target="_blank" rel="noopener noreferrer"
+                        class="contact-card">
+                        <!-- <div class="contact-icon-box">💼</div> -->
+                        <h3>LinkedIn</h3>
+                        <p>Jules L'HOMÉ</p>
+                    </a>
+
+                    <a href="https://github.com/lhomej" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <!-- <div class="contact-icon-box">💻</div> -->
+                        <h3>GitHub</h3>
+                        <p>lhomej</p>
+                    </a>
+
+
+                </div>
+
+                <div class="contact-location">
+                    <p>Disponible sur <strong>Montpellier</strong>, <strong>Grenoble</strong> et leurs
+                        <strong>alentours</strong>
+                    </p>
+                    <p><strong>Permis B</strong> / <strong>Véhiculé</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Conçu et développé par Jules L'HOMÉ</p>
+                <p class="footer-credits">Avec passion pour le code et l'aventure</p>
+                <p class="footer-copyright">&copy; 2025 Jules L'HOMÉ - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

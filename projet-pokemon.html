@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon TCG - Jules L'HOMÉ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Graph Background -->
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">{ JL'H }</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="index.html#skills" class="nav-link">Compétences</a></li>
+                <li><a href="index.html#formation" class="nav-link">Formation</a></li>
+                <li><a href="projets.html" class="nav-link active">Projets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <div class="weather-slider-container">
+                        <div class="sun-bg"></div>
+                        <input type="range" min="0" max="100" value="0" class="weather-slider" id="themeSlider"
+                            aria-label="Contrôle du thème">
+                        <span class="slider-tooltip">Glissez pour changer l'ambiance</span>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Changer le thème">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="back-btn-container">
+        <a href="projets.html" class="back-btn">
+            <span>←</span> Retour aux projets
+        </a>
+    </div>
+
+    <!-- Header Projet -->
+    <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-text">
+                    <p class="hero-greeting">Projet Académique</p>
+                    <h1>Pokémon Trading Card Game</h1>
+                    <p class="hero-title">Développement d'un moteur de jeu et d'une interface graphique JavaFX</p>
+
+                    <!-- HUD Stats Bar -->
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <span class="stat-value">17.86/20</span>
+                            <span class="stat-label">Note Finale</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">3 Semaines</span>
+                            <span class="stat-label">Durée (IHM)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Binôme</span>
+                            <span class="stat-label">Équipe</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Arsenal -->
+                    <div class="tech-arsenal">
+                        <div class="tech-badge">
+                            Java
+                        </div>
+                        <div class="tech-badge">
+                            JavaFX
+                        </div>
+                        <div class="tech-badge">
+                            POO
+                        </div>
+                        <div class="tech-badge">
+                            TDD
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu Détail -->
+    <section class="project-detail">
+        <div class="container">
+
+            <!-- 1. Contexte -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">01.</span> Contexte</h2>
+                <div class="about-text">
+                    <p><strong>Type de projet :</strong> Projet Académique (BUT Informatique - SAE 2.01 & S2.01)</p>
+                    <p><strong>Durée :</strong> 3 semaines pour la phase graphique (Mai-Juin 2025)</p>
+                    <p><strong>Mode de travail :</strong> Binôme (Équipe de 2 étudiants)</p>
+                    <p><strong>Résultat :</strong> Note de 17.86/20 (132/154 tests unitaires validés sur la phase 1)</p>
+
+                    <h3>Objectifs & Contraintes</h3>
+                    <ul class="timeline-details" style="margin-left: 1rem;">
+                        <li>Implémenter les règles métiers complexes du jeu de cartes Pokémon TCG en Java pur
+                            (<span class="highlight-accent">Architecture Orientée Objet stricte</span>).</li>
+                        <li>Créer une interface graphique interactive avec <span class="highlight-accent">JavaFX</span>
+                            respectant le pattern
+                            MVC.</li>
+                        <li>Utilisation de <span class="highlight-accent">Tests Unitaires (JUnit)</span> pour valider la
+                            logique avant
+                            l'interface.</li>
+                        <li>Interdiction de modifier les signatures imposées par le squelette fourni (<span
+                                class="highlight-accent">Façades</span>).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. Contribution Personnelle -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">02.</span> Contribution Personnelle</h2>
+
+                <div class="experience-list">
+                    <!-- Phase 1: Backend -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Phase 1 : Moteur de Jeu (Backend)</h4>
+                            <span class="experience-badge">Java / TDD</span>
+                        </div>
+                        <p class="experience-description">
+                            J'ai été responsable de l'orchestration globale de la partie et des mécaniques "spéciales"
+                            des cartes :
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Moteur de Jeu (`Jeu`) :</span> Développement de la classe
+                                centrale gérant le
+                                flux de la partie (boucle de jeu), l'alternance des tours, l'arbitrage des règles et la
+                                détection des conditions de victoire/défaite.</li>
+                            <li><span class="highlight-accent">Système de Talents (`Talents`) :</span> Implémentation
+                                des capacités spéciales
+                                des Pokémon (effets passifs ou actifs activables par le joueur), nécessitant une gestion
+                                fine des états du jeu.</li>
+                            <li><span class="highlight-accent">Cartes Dresseurs (`Dresseurs`) :</span> Codage de la
+                                logique des cartes
+                                "Support" et "Objet" (ex: Potion, Changement, Pioche), impliquant des interactions
+                                directes avec le deck, la main et le banc.</li>
+                            <li><span class="highlight-accent">Co-développement (`Joueur` & Tests) :</span>
+                                <ul>
+                                    <li>Collaboration sur la classe `Joueur` pour gérer la main et les actions de base.
+                                    </li>
+                                    <li>Réalisation conjointe des tests unitaires (JUnit) pour assurer la fiabilité du
+                                        code (Debugging croisé en fin de projet).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Phase 2: Frontend -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Phase 2 : Interface Graphique (Frontend)</h4>
+                            <span class="experience-badge">JavaFX / MVC</span>
+                        </div>
+                        <p class="experience-description">
+                            Création de l'interface utilisateur et liaison avec le modèle via le pattern Façade.
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Architecture IHM :</span> Utilisation de conteneurs
+                                (`BorderPane`, `GridPane`)
+                                et création de composants personnalisés (`VueMain`, `VuePokemon`).</li>
+                            <li><span class="highlight-accent">Data Binding :</span> Utilisation de Listeners pour la
+                                mise à jour temps réel
+                                de l'interface (PV, cartes en main).</li>
+                            <li><span class="highlight-accent">Événements :</span> Gestion des clics (attaque, retraite,
+                                piocher) et flux
+                                d'instructions contextuel.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Apprentissage -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">03.</span> Apprentissages</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Programmation Orientée Objet</h4>
+                        <p>Maîtrise avancée de l'héritage, du polymorphisme et de l'encapsulation pour gérer la
+                            complexité des cartes.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Architecture Logicielle</h4>
+                        <p>Compréhension du pattern <strong>Façade</strong> et <strong>MVC</strong> pour séparer
+                            proprement la logique métier de l'interface.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Qualité & Tests</h4>
+                        <p>Importance du <strong>TDD</strong> (Test Driven Development) avec 132 tests validés pour
+                            garantir la robustesse du code.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Travail d'Équipe</h4>
+                        <p>Gestion de version avec <strong>Git</strong>, résolution de conflits et collaboration
+                            efficace en binôme.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Démonstration Vidéo
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">04.</span> Démonstration</h2>
+                <div class="video-container" style="text-align: center; margin-top: 2rem;">
+                    <video controls width="100%"
+                        style="border-radius: 15px; box-shadow: var(--shadow-lg); max-height: 600px;">
+                        <source src="videos/unknown_2025.11.19-20.55_clip_1.mov" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                </div>
+            </div> -->
+
+            <!-- 5. Trace / Galerie -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">04.</span> Galerie du Projet</h2>
+                <p class="about-text" style="margin-bottom: 2rem;">Aperçu de l'interface graphique finale développée en
+                    JavaFX. <br><span style="font-size: 0.9em; color: var(--cyan-primary);">Cliquez sur une image pour
+                        l'agrandir</span></p>
+
+                <div class="projects-grid stagger-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <!-- Image 1 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-pokemon/pokemon-1.png" alt="Aperçu Pokémon 1"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-pokemon/pokemon-2.png" alt="Aperçu Pokémon 2"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-pokemon/pokemon-3.png" alt="Aperçu Pokémon 3"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-pokemon/pokemon-4.png" alt="Aperçu Pokémon 4"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-pokemon/pokemon-5.png" alt="Aperçu Pokémon 5"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 6 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-pokemon/pokemon-6.png" alt="Aperçu Pokémon 6"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Conçu et développé par Jules L'HOMÉ</p>
+                <p class="footer-credits">Projet Académique IUT Montpellier</p>
+                <p class="footer-copyright">&copy; 2025 Jules L'HOMÉ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="close-btn">&times;</span>
+        <button class="prev-btn">&#10094;</button>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="next-btn">&#10095;</button>
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application d'Enchères - Jules L'HOMÉ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Graph Background -->
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">{ JL'H }</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="index.html#skills" class="nav-link">Compétences</a></li>
+                <li><a href="index.html#formation" class="nav-link">Formation</a></li>
+                <li><a href="projets.html" class="nav-link active">Projets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <div class="weather-slider-container">
+                        <div class="sun-bg"></div>
+                        <input type="range" min="0" max="100" value="0" class="weather-slider" id="themeSlider"
+                            aria-label="Contrôle du thème">
+                        <span class="slider-tooltip">Glissez pour changer l'ambiance</span>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Changer le thème">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="back-btn-container">
+        <a href="projets.html" class="back-btn">
+            <span>←</span> Retour aux projets
+        </a>
+    </div>
+
+    <!-- Header Projet -->
+    <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-text">
+                    <p class="hero-greeting">Projet Académique</p>
+                    <h1>Application d'Enchères Sécurisée</h1>
+                    <p class="hero-title">Système d'enchères à plis fermés avec cryptographie et architecture distribuée
+                    </p>
+
+                    <!-- HUD Stats Bar -->
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <span class="stat-value">Java/Spring</span>
+                            <span class="stat-label">Stack</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">5 Sprints</span>
+                            <span class="stat-label">Durée</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4 Étudiants</span>
+                            <span class="stat-label">Équipe</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Arsenal -->
+                    <div class="tech-arsenal">
+                        <div class="tech-badge">Java</div>
+                        <div class="tech-badge">Spring Boot</div>
+                        <div class="tech-badge">Sockets TCP</div>
+                        <div class="tech-badge">Cryptographie</div>
+                        <div class="tech-badge">Agile/Scrum</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu Détail -->
+    <section class="project-detail">
+        <div class="container">
+
+            <!-- 1. Contexte -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">01.</span> Contexte Global</h2>
+                <div class="about-text">
+                    <p><strong>Type de projet :</strong> Projet Académique (BUT Informatique - SAE S3.B.01).</p>
+                    <p><strong>Sujet :</strong> Conception et développement d'une <strong>application
+                            client-serveur</strong> pour des <strong>enchères électroniques à plis fermés</strong>
+                        (Protocole de Vickrey).</p>
+                    <p><strong>Méthodologie :</strong> Gestion de projet <strong>Agile (Scrum)</strong> organisée sur
+                        <strong>5 Sprints</strong>.
+                    </p>
+                    <p><strong>Objectif :</strong> Partir d'un besoin client initialement flou pour livrer une solution
+                        <strong>robuste</strong>, <strong>sécurisée</strong> et <strong>fonctionnelle</strong> par
+                        itérations successives.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. Architecture -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">02.</span> Architecture & Protocole</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Architecture Hybride</h4>
+                            <span class="experience-badge">Java / Spring</span>
+                        </div>
+                        <p class="experience-description">
+                            Pour répondre aux besoins temps réel et web, nous avons conçu une solution mixte :
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Cœur Réseau (Sockets TCP Java) :</span> Implémentation
+                                bas niveau pour le
+                                <span class="highlight-accent">protocole d'échange sécurisé</span> entre Vendeur,
+                                Enchérisseurs et Autorité.
+                            </li>
+                            <li><span class="highlight-accent">API & Web (Spring Boot) :</span> Gestion des interactions
+                                HTTP (Inscription,
+                                Authentification, Dashboard).</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Sécurité & Cryptographie</h4>
+                            <span class="experience-badge">RSA / Signature</span>
+                        </div>
+                        <p class="experience-description">
+                            Application stricte du <span class="highlight-accent">protocole de Vickrey</span> :
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Chiffrement asymétrique</span> des offres et <span
+                                    class="highlight-accent">signature
+                                    numérique</span>.</li>
+                            <li>Système de "<span class="highlight-accent">Tiers de Confiance</span>" (Autorité) pour
+                                l'ouverture des plis et
+                                le calcul du <span class="highlight-accent">second prix</span> (vainqueur).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Contributions Individuelles -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">03.</span> Contributions Individuelles</h2>
+                <p class="about-text" style="margin-bottom: 1.5rem;">J'ai occupé un rôle <span
+                        class="highlight-accent">hybride
+                        stratégique</span>, combinant <span class="highlight-accent">leadership technique</span> et
+                    <span class="highlight-accent">gestion de
+                        produit</span>.
+                </p>
+
+                <div class="experience-list">
+                    <!-- Product Owner -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Rôle de Product Owner (Agile)</h4>
+                            <span class="experience-badge">Gestion de Projet</span>
+                        </div>
+                        <p class="experience-description">
+                            Garant de la <span class="highlight-accent">vision produit</span> et de la <span
+                                class="highlight-accent">valeur livrée</span> au
+                            client tout au long des 5 sprints.
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Définition du Produit :</span> Responsable de m'assurer
+                                que l'équipe
+                                "construise le bon projet" en alignement avec les <span class="highlight-accent">besoins
+                                    réels</span> du
+                                client.</li>
+                            <li><span class="highlight-accent">Gestion du Backlog :</span> Affinage constant du Product
+                                Backlog
+                                (<span class="highlight-accent">Backlog Refinement</span>), rédaction des <span
+                                    class="highlight-accent">User Stories</span> et
+                                définition des <span class="highlight-accent">critères d'acceptation</span>.</li>
+                            <li><span class="highlight-accent">Planification :</span> <span
+                                    class="highlight-accent">Priorisation</span> des tâches pour chaque
+                                sprint en fonction de la <span class="highlight-accent">valeur métier</span> et des
+                                contraintes techniques.
+                            </li>
+                            <li><span class="highlight-accent">Relation Client :</span> Point de contact principal pour
+                                la communication avec
+                                le client (recueil de feedback, validation des incréments).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Lead Tech -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Rôle Technique (Lead Backend & Sécurité)</h4>
+                            <span class="experience-badge">Dev & Secu</span>
+                        </div>
+                        <p class="experience-description">
+                            Responsabilité de l'implémentation "Backend & Sécurité", garant de la <span
+                                class="highlight-accent">fiabilité du
+                                protocole</span>.
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Implémentation du Protocole Cryptographique :</span>
+                                Traduction des
+                                spécifications théoriques en code Java fonctionnel.
+                                <ul>
+                                    <li>Gestion des <span class="highlight-accent">clés asymétriques</span>
+                                        (Publique/Privée) pour le
+                                        chiffrement et la signature.</li>
+                                    <li>Algorithme de calcul du vainqueur selon la règle du "<span
+                                            class="highlight-accent">Second
+                                            Prix</span>".</li>
+                                </ul>
+                            </li>
+                            <li><span class="highlight-accent">Développement Réseau (Sockets) :</span> Développement des
+                                <span class="highlight-accent">serveurs TCP
+                                    multithreadés</span> pour gérer les connexions simultanées des enchérisseurs.</li>
+                            <li><span class="highlight-accent">Architecture Spring Boot :</span> Création des endpoints
+                                REST pour
+                                l'authentification et la gestion des comptes.</li>
+                            <li><span class="highlight-accent">Fonctionnalités Métier :</span> Conception du <span
+                                    class="highlight-accent">Dashboard
+                                    Administrateur</span> et des formulaires d'enchères.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Apprentissages -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">04.</span> Apprentissages</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Développement Réseau & Sécurité</h4>
+                        <p>Maîtrise de la <strong>programmation Sockets TCP</strong>, des flux synchrones et de la
+                            <strong>cryptographie appliquée</strong> (RSA, Signature).
+                        </p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Gestion de Projet Agile</h4>
+                        <p>Pilotage d'équipe via <strong>Scrum</strong>, formalisation des besoins et
+                            <strong>priorisation stratégique</strong> (Valeur vs Effort).
+                        </p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Architecture Logicielle</h4>
+                        <p>Intégration de systèmes hétérogènes (Java Legacy + Framework Web Spring Boot).</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Travail Collaboratif</h4>
+                        <p><strong>Coordination</strong> d'une équipe de 4 personnes et communication avec les parties
+                            prenantes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Galerie -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">05.</span> Galerie du Projet</h2>
+                <p class="about-text" style="margin-bottom: 2rem;">Aperçu de l'application, du dashboard et des
+                    diagrammes. <br><span style="font-size: 0.9em; color: var(--cyan-primary);">Cliquez sur une image
+                        pour
+                        l'agrandir</span></p>
+
+                <div class="projects-grid stagger-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <!-- Image 1 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-1.png" alt="Aperçu Enchère 1"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-2.png" alt="Aperçu Enchère 2"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-3.png" alt="Aperçu Enchère 3"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-4.png" alt="Aperçu Enchère 4"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-5.png" alt="Aperçu Enchère 5"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 6 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-6.png" alt="Aperçu Enchère 6"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 7 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-7.png" alt="Aperçu Enchère 7"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 8 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-8.png" alt="Aperçu Enchère 8"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 9 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-9.png" alt="Aperçu Enchère 9"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 10 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-10.png" alt="Aperçu Enchère 10"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 11 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-enchere/enchere-11.png" alt="Aperçu Enchère 11"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Conçu et développé par Jules L'HOMÉ</p>
+                <p class="footer-credits">Projet Académique IUT Montpellier</p>
+                <p class="footer-copyright">&copy; 2025 Jules L'HOMÉ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="close-btn">&times;</span>
+        <button class="prev-btn">&#10094;</button>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="next-btn">&#10095;</button>
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

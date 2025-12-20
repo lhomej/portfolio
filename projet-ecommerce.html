@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site E-Commerce - Jules L'HOMÉ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Graph Background -->
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">{ JL'H }</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="index.html#skills" class="nav-link">Compétences</a></li>
+                <li><a href="index.html#formation" class="nav-link">Formation</a></li>
+                <li><a href="projets.html" class="nav-link active">Projets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <div class="weather-slider-container">
+                        <div class="sun-bg"></div>
+                        <input type="range" min="0" max="100" value="0" class="weather-slider" id="themeSlider"
+                            aria-label="Contrôle du thème">
+                        <span class="slider-tooltip">Glissez pour changer l'ambiance</span>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Changer le thème">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="back-btn-container">
+        <a href="projets.html" class="back-btn">
+            <span>←</span> Retour aux projets
+        </a>
+    </div>
+
+    <!-- Header Projet -->
+    <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-text">
+                    <p class="hero-greeting">Projet Académique</p>
+                    <h1>Site E-Commerce (Sneakers)</h1>
+                    <p class="hero-title">Conception et réalisation d'un site de vente en ligne complet (MVC)</p>
+
+                    <!-- HUD Stats Bar -->
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <span class="stat-value">PHP/SQL</span>
+                            <span class="stat-label">Stack</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">7 Semaines</span>
+                            <span class="stat-label">Durée</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">3 Étudiants</span>
+                            <span class="stat-label">Équipe</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Arsenal -->
+                    <div class="tech-arsenal">
+                        <div class="tech-badge">PHP</div>
+                        <div class="tech-badge">MySQL</div>
+                        <div class="tech-badge">MVC</div>
+                        <div class="tech-badge">HTML/CSS</div>
+                        <div class="tech-badge">Git</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu Détail -->
+    <section class="project-detail">
+        <div class="container">
+
+            <!-- 1. Contexte -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">01.</span> Contexte Global</h2>
+                <div class="about-text">
+                    <p><strong>Type de projet :</strong> Projet Académique (R3.01 Développement Web - IUT)</p>
+                    <p><strong>Sujet :</strong> Conception et réalisation d'un site de e-commerce complet sur le thème
+                        de la <span class="highlight-accent">Vente de Sneakers</span>.</p>
+                    <p><strong>Déploiement :</strong> Site hébergé sur le serveur web de l'IUT (Linux/Apache) accessible
+                        publiquement.</p>
+
+                    <h3>Objectifs</h3>
+                    <ul class="timeline-details" style="margin-left: 1rem;">
+                        <li>Mettre en place une architecture <span class="highlight-accent">MVC
+                                (Modèle-Vue-Contrôleur)</span> robuste sans
+                            framework.</li>
+                        <li>Gérer une base de données relationnelle complexe avec <span
+                                class="highlight-accent">PDO</span>.</li>
+                        <li>Sécuriser l'application (injections SQL, XSS, mots de passe chiffrés).</li>
+                        <li>Travailler en équipe avec <span class="highlight-accent">Git</span>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. Réalisation Technique -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">02.</span> Réalisation Technique</h2>
+
+                <div class="experience-list">
+                    <!-- Architecture -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Architecture & Backend</h4>
+                            <span class="experience-badge">PHP / MVC</span>
+                        </div>
+                        <p class="experience-description">
+                            Développement d'une structure MVC "from scratch" pour une maintenabilité optimale.
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Contrôleur Frontal :</span> Point d'entrée unique gérant
+                                le routage et les
+                                erreurs.</li>
+                            <li><span class="highlight-accent">Modèle de Données :</span> Séparation nette entre Entités
+                                (`DataObject`) et
+                                Accès aux données (`Repository`).</li>
+                            <li><span class="highlight-accent">Généricité :</span> Implémentation d'un CRUD générique
+                                pour gérer toutes les
+                                entités (Produits, Commandes) sans duplication de code.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Fonctionnalités -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Fonctionnalités Clés</h4>
+                            <span class="experience-badge">Fullstack</span>
+                        </div>
+                        <p class="experience-description">
+                            Implémentation des fonctionnalités essentielles d'un e-commerce moderne.
+                        </p>
+                        <ul class="timeline-details">
+                            <li><span class="highlight-accent">Catalogue Produits :</span> Affichage dynamique, détails
+                                des paires, gestion
+                                des stocks.</li>
+                            <li><span class="highlight-accent">Espace Membre :</span> Inscription (vérification email),
+                                Connexion sécurisée,
+                                Profil, Rôles (Admin/User).</li>
+                            <li><span class="highlight-accent">Panier & Commandes :</span> Gestion du panier via
+                                Cookies/Sessions, tunnel de
+                                commande, historique des achats.</li>
+                            <li><span class="highlight-accent">Administration :</span> Interface de gestion (CRUD) pour
+                                les produits.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Contributions Individuelles -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">03.</span> Contributions Individuelles</h2>
+                <p class="about-text" style="margin-bottom: 1.5rem;">Sur ce projet, je me suis concentré sur la
+                    <span class="highlight-accent">structure des données</span> et la <span
+                        class="highlight-accent">partie administrative</span> du site
+                    (Back-office), assurant la gestion du catalogue et la sécurité des accès.
+                </p>
+
+                <div class="experience-list">
+                    <!-- Base de Données & Architecture -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Base de Données & Architecture</h4>
+                            <span class="experience-badge">Backend</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li><strong>Conception SQL :</strong> Création du schéma relationnel et implémentation de la
+                                base de données (Tables Produits, Utilisateurs, etc.).</li>
+                            <li><strong>Intégration :</strong> Mise en place des requêtes préparées (PDO) pour sécuriser
+                                les interactions avec la base.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Gestion des Produits -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Gestion des Produits (Front & Back)</h4>
+                            <span class="experience-badge">Fullstack</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li><strong>Page Produits (Front-Office) :</strong> Développement des vues et des
+                                contrôleurs permettant l'affichage dynamique du catalogue et des détails de chaque paire
+                                de sneakers.</li>
+                            <li><strong>Dashboard Administrateur (Back-Office) :</strong> Conception complète de
+                                l'interface de gestion réservée aux administrateurs.</li>
+                            <li><strong>Gestion du Catalogue (CRUD) :</strong> Implémentation des fonctionnalités
+                                permettant d'ajouter, modifier ou supprimer des produits et de gérer les stocks
+                                directement depuis l'interface admin.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sécurité & Gestion des Accès -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Sécurité & Gestion des Accès</h4>
+                            <span class="experience-badge">Sécurité</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li><strong>Sécurisation des Routes :</strong> Développement d'un système de vérification
+                                des droits (Middleware/Check) pour protéger l'accès au Dashboard.</li>
+                            <li><strong>Gestion des Rôles :</strong> Implémentation d'une logique stricte empêchant tout
+                                utilisateur standard d'accéder aux URL d'administration ou d'effectuer des actions
+                                privilégiées.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Apprentissages -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">04.</span> Apprentissages</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Architecture Web</h4>
+                        <p>Compréhension profonde du fonctionnement d'un site dynamique : routage, sessions, cookies,
+                            sans la "magie" des frameworks.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Design Patterns</h4>
+                        <p>Application concrète du <strong>MVC</strong> et de la <strong>Généricité</strong> en PHP
+                            Objet.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Sécurité</h4>
+                        <p>Mise en œuvre des bonnes pratiques : requêtes préparées (PDO), échappement XSS, hachage des
+                            mots de passe.</p>
+                    </div>
+                    <!-- <div class="value-item">
+                        <h4>DevOps Basics</h4>
+                        <p>Déploiement sur serveur Linux/Apache, gestion des droits, configuration web.</p>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- 4. Démonstration Vidéo
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">04.</span> Démonstration</h2>
+                <div class="video-container" style="text-align: center; margin-top: 2rem;">
+                    <video controls width="100%"
+                        style="border-radius: 15px; box-shadow: var(--shadow-lg); max-height: 600px;">
+                        <source src="videos/unknown_2025.11.19-20.55_clip_1.mov" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                </div>
+            </div> -->
+
+            <!-- 5. Galerie -->
+            <div class="cv-block fade-in">
+                <h2 class="section-title"><span class="section-number">05.</span> Galerie du Projet</h2>
+                <p class="about-text" style="margin-bottom: 2rem;">Aperçu de l'interface du site. <br><span
+                        style="font-size: 0.9em; color: var(--cyan-primary);">Cliquez sur une image pour
+                        l'agrandir</span></p>
+
+                <div class="projects-grid stagger-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <!-- Image 1 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-1.png" alt="Aperçu E-commerce 1"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-2.png" alt="Aperçu E-commerce 2"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-3.png" alt="Aperçu E-commerce 3"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-4.png" alt="Aperçu E-commerce 4"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-5.png" alt="Aperçu E-commerce 5"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 6 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-6.png" alt="Aperçu E-commerce 6"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 7 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-7.png" alt="Aperçu E-commerce 7"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 8 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-8.png" alt="Aperçu E-commerce 8"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 9 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-9.png" alt="Aperçu E-commerce 9"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 10 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-10.png" alt="Aperçu E-commerce 10"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 11 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-11.png" alt="Aperçu E-commerce 11"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 12 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-12.png" alt="Aperçu E-commerce 12"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 13 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-13.png" alt="Aperçu E-commerce 13"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                    <!-- Image 14 -->
+                    <div class="project-card gallery-card">
+                        <div class="project-image-container" style="height: auto; border-bottom: none;">
+                            <img src="images/projet-ecommerce/ecommerce-14.png" alt="Aperçu E-commerce 14"
+                                class="project-preview" style="position: relative; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Conçu et développé par Jules L'HOMÉ</p>
+                <p class="footer-credits">Projet Académique IUT Montpellier</p>
+                <p class="footer-copyright">&copy; 2025 Jules L'HOMÉ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="close-btn">&times;</span>
+        <button class="prev-btn">&#10094;</button>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="next-btn">&#10095;</button>
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

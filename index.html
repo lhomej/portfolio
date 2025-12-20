@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jules L'HOMÉ - Portfolio Développeur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Graph Background -->
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">{ JL'H }</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#skills" class="nav-link">Compétences</a></li>
+                <li><a href="#formation" class="nav-link">Formation</a></li>
+                <li><a href="projets.html" class="nav-link">Projets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <div class="weather-slider-container">
+                        <div class="sun-bg"></div>
+                        <input type="range" min="0" max="100" value="0" class="weather-slider" id="themeSlider"
+                            aria-label="Contrôle du thème">
+                        <span class="slider-tooltip">Glissez pour changer l'ambiance</span>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Changer le thème">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="hero-greeting">Bienvenue</p>
+                    <h1>Jules L'HOMÉ</h1>
+                    <p class="hero-title">Développeur avec un fort intérêt pour la Cybersécurité et le Big Data</p>
+                    <p class="hero-description">
+                        Étudiant en 2ème année de BUT Informatique à l'IUT de Montpellier,
+                        je développe mes compétences en programmation tout en m'intéressant à la cybersécurité et au Big
+                        Data,
+                        et en nourrissant ma passion pour les voyages et la découverte du monde.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="projets.html" class="btn btn-primary">Découvrir mes projets</a>
+                        <a href="images/LHOME_Jules_CV.pdf.pdf" download="LHOME_Jules_CV.pdf" class="btn btn-secondary">Télécharger mon
+                            CV</a>
+                        <a href="contact.html" class="btn btn-secondary">Me contacter</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="hero-image-wrapper">
+                        <img src="images/profile.JPG" alt="Jules L'HOMÉ" class="hero-image">
+                        <div class="image-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about" aria-label="Scroll down">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">01.</span> À propos
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Passionné par la programmation et portant un fort intérêt à la cybersécurité ainsi qu'au Big
+                        Data, j'ai
+                        choisi de m'orienter vers
+                        le parcours
+                        <strong>DACS</strong> (<span class="highlight-accent">Déploiement d'Applications Communicantes
+                            et Sécurisées</span>) en BUT
+                        Informatique.
+                        Ce choix reflète ma volonté de maîtriser non seulement le développement, mais aussi
+                        l'infrastructure et la sécurité qui l'entourent.
+                    </p>
+
+                    <p class="about-intro">
+                        Au cours de ma formation à l'IUT de Montpellier, j'ai acquis des compétences solides en
+                        développement (Java, PHP), mais j'ai également développé une expertise particulière en
+                        <span class="highlight-accent">gestion de bases de données</span>, un domaine où je me sens
+                        particulièrement à l'aise
+                        (SQL, PL/SQL, Oracle).
+                        Mes deux passions, le code et les voyages, nourrissent ma curiosité et ma capacité d'adaptation.
+                    </p>
+
+                    <h3>Mes points forts</h3>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <!-- <div class="value-icon-box">🚀</div> -->
+                            <h4>Capacité d'adaptation</h4>
+                            <p>Rapidement opérationnel sur de nouvelles technologies</p>
+                        </div>
+                        <div class="value-item">
+                            <!-- <div class="value-icon-box">🤝</div> -->
+                            <h4>Gestion d'équipe</h4>
+                            <p>Product Owner dans un projet agile de création d'une application d'enchères à plis fermés
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <!-- <div class="value-icon-box">💡</div> -->
+                            <h4>Curiosité</h4>
+                            <p>Veille technologique et apprentissage continu</p>
+                        </div>
+                    </div>
+
+                    <h3>Centres d'intérêt</h3>
+                    <div class="interests">
+                        <span class="interest-tag">Voyages</span>
+                        <span class="interest-tag">Course</span>
+                        <span class="interest-tag">Salle de sport</span>
+                        <span class="interest-tag">Cybersécurité</span>
+                        <span class="interest-tag">Big Data</span>
+                        <span class="interest-tag">Veille technologique</span>
+                    </div>
+
+                    <h3>Vision Future</h3>
+                    <p class="about-intro">
+                        Mon ambition est d'intégrer une <strong>école d'ingénieur avec une spécialisation en
+                            <span class="highlight-accent">cybersécurité</span>, ou en <span
+                                class="highlight-accent">Big Data</span></strong> après mon BUT.
+                        Je suis particulièrement motivé par les défis techniques liés à la protection des systèmes et
+                        des données.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">02.</span> Compétences
+            </h2>
+
+            <p class="skills-note" style="text-align: center; margin-bottom: 2rem; opacity: 0.8; font-size: 0.9em;">
+                <em>* Les pourcentages sont par rapport au niveau attendu au BUT.</em>
+            </p>
+
+            <h3 class="cv-block-title" style="margin-bottom: 2rem; text-align: left; font-size: 1.5rem;">Techniques</h3>
+
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Langages de Programmation</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">C</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percentage">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL/PLSQL</span>
+                            <span class="skill-percentage">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Frameworks & Outils</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaFX</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">PDO</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Oracle DB</span>
+                            <span class="skill-percentage">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Domaines d'expertise</h4>
+                    <!-- <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Cybersécurité</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                    </div> -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">POO</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Bases de données</span>
+                            <span class="skill-percentage">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Réseaux</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cv-block-title"
+                style="margin-top: 4rem; margin-bottom: 2rem; text-align: left; font-size: 1.5rem;">Soft Skills</h3>
+
+            <div class="soft-skills-grid">
+                <div class="soft-skill-card">
+                    <!-- <div class="soft-skill-icon">👥</div> -->
+                    <h4>Gestion d'équipe</h4>
+                </div>
+                <div class="soft-skill-card">
+                    <!-- <div class="soft-skill-icon">💬</div> -->
+                    <h4>Communication</h4>
+                </div>
+                <div class="soft-skill-card">
+                    <!-- <div class="soft-skill-icon">⚡</div> -->
+                    <h4>Autonomie</h4>
+                </div>
+                <div class="soft-skill-card">
+                    <!-- <div class="soft-skill-icon">🔄</div> -->
+                    <h4>Adaptabilité</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formation & Expérience -->
+    <section id="formation" class="cv-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">03.</span> Formation & Expérience
+            </h2>
+
+            <!-- Formation -->
+            <div class="cv-block">
+                <h3 class="cv-block-title">Formation</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h4>BUT Informatique</h4>
+                                <span class="timeline-date">2024 - Présent</span>
+                            </div>
+                            <p class="timeline-location">IUT Montpellier-Sète</p>
+                            <p class="timeline-specialty">Option: Déploiement d'Applications Communicantes et Sécurisées
+                                (DACS)</p>
+                            <!-- <ul class="timeline-details">
+                                <li>Développement orienté objets</li>
+                                <li>Cybersécurité et protocoles sécurisés</li>
+                                <li>Gestion de bases de données</li>
+                                <li>Interfaces Homme-Machine</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h4>Baccalauréat STI2D</h4>
+                                <span class="timeline-date">2021 - 2024</span>
+                            </div>
+                            <p class="timeline-location">Lycée Ferdinand Buisson (Voiron 38)</p>
+                            <p class="timeline-specialty">Spécialité: Systèmes d'Information et Numérique (SIN)</p>
+                            <p class="timeline-mention">Mention Très Bien</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expériences
+            <div class="cv-block">
+                <h3 class="cv-block-title">Expériences Académiques</h3>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Application d'enchères sécurisée</h4>
+                            <span class="experience-badge">En cours</span>
+                        </div>
+                        <p class="experience-description">
+                            Conception et réalisation d'une application client-serveur Java d'enchères à plis fermés
+                            avec protocole sécurisé (chiffrement, signatures numériques, sockets réseau).
+                        </p>
+                        <div class="experience-tech">
+                            <span>Java</span>
+                            <span>Sécurité</span>
+                            <span>Réseaux</span>
+                            <span>UML</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Site Web E-Commerce</h4>
+                            <span class="experience-badge">Octobre 2025</span>
+                        </div>
+                        <p class="experience-description">
+                            Développement d'un site e-commerce en PHP avec gestion sécurisée de base de données via PDO.
+                        </p>
+                        <div class="experience-tech">
+                            <span>PHP</span>
+                            <span>PDO</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Exploitation d'une base de données</h4>
+                            <span class="experience-badge">Mai 2025</span>
+                        </div>
+                        <p class="experience-description">
+                            Conception et intégration d'une base de données Oracle avec modélisation entité-association
+                            et production de vues SQL avancées.
+                        </p>
+                        <div class="experience-tech">
+                            <span>Oracle</span>
+                            <span>SQL/PLSQL</span>
+                            <span>Modélisation</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Code Game Jam 2025</h4>
+                            <span class="experience-badge">Février 2025</span>
+                        </div>
+                        <p class="experience-description">
+                            Création d'un jeu vidéo complet en 24 heures en équipe de 4 personnes.
+                        </p>
+                        <div class="experience-tech">
+                            <span>Travail d'équipe</span>
+                            <span>Gestion du temps</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Conçu et développé par Jules L'HOMÉ</p>
+                <p class="footer-credits">Avec passion pour le code et l'aventure</p>
+                <p class="footer-copyright">&copy; 2025 Jules L'HOMÉ - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

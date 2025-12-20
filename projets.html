@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets - Jules L'HOMÉ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Graph Background -->
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">{ JL'H }</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="index.html#skills" class="nav-link">Compétences</a></li>
+                <li><a href="index.html#formation" class="nav-link">Formation</a></li>
+                <li><a href="projets.html" class="nav-link active">Projets</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <div class="weather-slider-container">
+                        <div class="sun-bg"></div>
+                        <input type="range" min="0" max="100" value="0" class="weather-slider" id="themeSlider"
+                            aria-label="Contrôle du thème">
+                        <span class="slider-tooltip">Glissez pour changer l'ambiance</span>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Changer le thème">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Section Projets -->
+    <section id="projects" class="projects-page">
+        <div class="container">
+            <h1 class="page-title">Mes Projets</h1>
+
+            <!-- Filtres -->
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="academic">Académiques</button>
+                <button class="filter-btn" data-filter="personal">Personnels</button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projet 1: Site E-Commerce -->
+                <div class="project-card" data-category="academic">
+                    <div class="project-image-container">
+                        <img src="images/projet-ecommerce/ecommerce-1.png" alt="Site E-Commerce" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-type">Académique</span>
+                            <h3>Site E-Commerce</h3>
+                        </div>
+                        <p class="project-description">
+                            Conception et réalisation complète d'un site de vente de sneakers en PHP/MVC sans framework.
+                            Gestion utilisateurs, panier, commandes et administration.
+                        </p>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>MVC</span>
+                            <span>MySQL</span>
+                            <span>HTML/CSS</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projet-ecommerce.html" class="btn-detail">Voir le détail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2: Pokémon TCG -->
+                <div class="project-card" data-category="academic">
+                    <div class="project-image-container">
+                        <img src="images/projet-pokemon/pokemon-6.png" alt="Pokémon TCG" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-type">Académique</span>
+                            <h3>Pokémon Trading Card Game</h3>
+                        </div>
+                        <p class="project-description">
+                            Jeu de cartes Pokémon TCG complet avec interface graphique JavaFX.
+                            Développement en 2 phases : mécanique du jeu puis interface utilisateur.
+                        </p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>JavaFX</span>
+                            <span>TDD</span>
+                            <span>MVC</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projet-pokemon.html" class="btn-detail">Voir le détail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3: Application d'Enchères -->
+                <div class="project-card" data-category="academic">
+                    <div class="project-image-container">
+                        <img src="images/projet-enchere/enchere-1.png" alt="Application Enchères" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-type">Académique</span>
+                            <h3>Application d'Enchères</h3>
+                        </div>
+                        <p class="project-description">
+                            Système d'enchères sécurisé à plis fermés (Vickrey). Architecture client-serveur,
+                            cryptographie RSA et gestion de projet Agile.
+                        </p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>Spring</span>
+                            <span>Sockets</span>
+                            <span>Sécurité</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projet-enchere.html" class="btn-detail">Voir le détail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3: Code Game Jam -->
+                <div class="project-card" data-category="personal">
+                    <div class="project-image-container">
+                        <img src="images/projet-cgj2025/cgj2025-1.png" alt="CGJ 2025" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-type">Personnel</span>
+                            <h3>Code Game Jam 2025</h3>
+                        </div>
+                        <p class="project-description">
+                            Création d'un jeu vidéo "Melo Knight" en 30h.
+                            Découverte et maîtrise du moteur GameMaker et collaboration avec des musiciens.
+                        </p>
+                        <div class="project-tech">
+                            <span>GameMaker</span>
+                            <span>GML</span>
+                            <span>Hackathon</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="projet-gamejam.html" class="btn-detail">Voir le détail →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Conçu et développé par Jules L'HOMÉ</p>
+                <p class="footer-credits">Avec passion pour le code et l'aventure</p>
+                <p class="footer-copyright">&copy; 2025 Jules L'HOMÉ - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
