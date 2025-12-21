@@ -445,7 +445,18 @@ filterButtons.forEach(button => {
     });
 });
 
+// ===== RENDRE TOUTE LA CARTE PROJET CLIQUABLE =====
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        // On évite de déclencher deux fois si on clique directement sur le lien
+        if (e.target.tagName === 'A' || e.target.closest('a')) return;
 
+        const link = card.querySelector('.btn-detail');
+        if (link) {
+            window.location.href = link.href;
+        }
+    });
+});
 
 // ===== LA BARRE DE PROGRESSION EN HAUT =====
 window.addEventListener('scroll', () => {

@@ -1520,6 +1520,8 @@ section {
     /* Pour que l'image ne dépasse pas des coins arrondis */
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    /* On rend toute la carte cliquable */
 }
 
 .project-image-container {
@@ -1563,7 +1565,8 @@ section {
     gap: 5px;
 }
 
-.btn-detail:hover {
+.btn-detail:hover,
+.project-card:hover .btn-detail {
     color: var(--text-primary);
     transform: translateX(5px);
 }
